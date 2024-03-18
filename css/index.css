@@ -1,4 +1,152 @@
 :root {
   --font-body: "Purple Purse", serif;
   --font-sub: "Pretendard Variable";
+  --cal-bg: #f0f0f0;
+  --operation-bg: #bfffcd;
+  --operation-txt: #146428;
+  --handle-bg: #ffbfbf;
+  --handle-txt: #c82828;
+  --result-bg: #fcf9dd;
+  --grey: #868686;
+  --grey-darker: #3c3c3c;
+  --black: #000;
+  --white: #fff;
+  --stroke: #525252;
+}
+
+/* 메인 */
+main {
+  margin: 0 auto;
+  width: 1100px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+main > h1 {
+  color: var(--black);
+  font-size: 6.4rem;
+  margin-top: 120px;
+  text-align: center;
+}
+
+/* 메인-cal */
+.cal {
+  background-color: var(--cal-bg);
+  border: 2px solid var(--stroke);
+  border-radius: 15px;
+  display: flex;
+  gap: 50px;
+  font-size: 6.4rem;
+  height: max-content;
+  align-items: stretch;
+  padding: 30px;
+}
+
+/* cal - view */
+.cal__view {
+  flex: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.view__field {
+  border: 2px solid var(--stroke);
+  background-color: var(--white);
+  height: 100%;
+  font-size: 5rem;
+  padding: 16px;
+  border-radius: 15px;
+}
+.view__result {
+  border: 2px solid var(--stroke);
+  background-color: var(--result-bg);
+  height: 110px;
+  border-radius: 15px;
+  flex-shrink: 0;
+  line-height: 110px;
+  padding-left: 30px;
+  color: var(--black);
+}
+
+/* cal - btns */
+.cal__btns {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  line-height: 9.5rem;
+  gap: 12px;
+}
+.btns__numpads {
+  grid-column: 1/4;
+  grid-row: 1/5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: var(--black);
+}
+.numpad {
+  width: 30%;
+  border-radius: 15px;
+  background-color: var(--white);
+  text-align: center;
+  border: 2px solid var(--stroke);
+}
+.numpad:hover {
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
+.btns__operations {
+  grid-column: 4/5;
+  grid-row: 1/5;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.operation {
+  background-color: var(--operation-bg);
+  border-radius: 15px;
+  border: 2px solid var(--stroke);
+  text-align: center;
+  color: var(--operation-txt);
+}
+.operation:hover {
+  cursor: pointer;
+  background-color: #78d98d;
+}
+.btns__handles {
+  grid-column: 1/5;
+  grid-row: 5/6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.handle {
+  flex: 1;
+  text-align: center;
+  color: var(--handle-txt);
+  border: 2px solid var(--stroke);
+  border-radius: 15px;
+  background-color: var(--handle-bg);
+}
+.handle:hover {
+  cursor: pointer;
+  background-color: #ef9595;
+}
+
+/* 푸터 */
+footer {
+  width: max-content;
+  font-family: var(--font-sub);
+  margin: 123px auto 30px;
+  display: flex;
+  align-items: center;
+  color: var(--grey);
+  font-size: 1.3rem;
+}
+footer a {
+  font-weight: 700;
+  color: var(--grey-darker);
 }
