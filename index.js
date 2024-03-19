@@ -119,5 +119,16 @@ o4.addEventListener("click", () => {
 });
 reset.addEventListener("click", () => {
   field = "";
+  viewResult.innerHTML = "=";
   rebase();
+});
+result.addEventListener("click", () => {
+  try {
+    viewResult.innerHTML = "=";
+    viewResult.innerHTML = viewResult.innerHTML + eval(field);
+    field = "";
+    rebase();
+  } catch (err) {
+    console.log(err);
+  }
 });
