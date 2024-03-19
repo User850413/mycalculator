@@ -32,54 +32,97 @@ let field = viewField.innerHTML;
 
 n1.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "1";
+  console.log(typeof viewField.innerHTML);
 });
 n2.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "2";
+  console.log(viewField.innerHTML);
 });
 n3.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "3";
+  console.log(viewField.innerHTML);
 });
 n4.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "4";
+  console.log(viewField.innerHTML);
 });
 n5.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "5";
+  console.log(viewField.innerHTML);
 });
 n6.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "6";
+  console.log(viewField.innerHTML);
 });
 n7.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "7";
+  console.log(viewField.innerHTML);
 });
 n8.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "8";
+  console.log(viewField.innerHTML);
 });
 n9.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "9";
+  console.log(viewField.innerHTML);
 });
 n0.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "0";
+  console.log(viewField.innerHTML);
 });
 nl.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + "(";
+  console.log(viewField.innerHTML);
 });
 nr.addEventListener("click", () => {
   viewField.innerHTML = viewField.innerHTML + ")";
+  console.log(viewField.innerHTML);
 });
 o1.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "+";
+  if (
+    viewField.innerHTML !== "" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
+  ) {
+    viewField.innerHTML = viewField.innerHTML + " + ";
+  }
 });
 o2.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "-";
+  if (
+    viewField.innerHTML !== "" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
+  ) {
+    viewField.innerHTML = viewField.innerHTML + " - ";
+  }
 });
 o3.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "*";
+  if (
+    viewField.innerHTML !== "" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
+  ) {
+    viewField.innerHTML = viewField.innerHTML + " * ";
+  }
 });
 o4.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "/";
+  if (
+    viewField.innerHTML !== "" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
+    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
+  ) {
+    viewField.innerHTML = viewField.innerHTML + " / ";
+  }
 });
 reset.addEventListener("click", () => {
   viewField.innerHTML = "";
 });
-
-// field 내 연산자를 수학공식으로 변환
+console.log();
