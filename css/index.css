@@ -55,7 +55,7 @@ main > h1 {
   background-color: var(--white);
   height: 100%;
   font-size: 5rem;
-  padding: 16px;
+  padding: 30px;
   border-radius: 15px;
 }
 .view__result {
