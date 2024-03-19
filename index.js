@@ -86,7 +86,7 @@ o1.addEventListener("click", () => {
     viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
     viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
   ) {
-    viewField.innerHTML = viewField.innerHTML + " + ";
+    viewField.innerHTML = viewField.innerHTML + "+";
   }
 });
 o2.addEventListener("click", () => {
@@ -97,7 +97,7 @@ o2.addEventListener("click", () => {
     viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
     viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
   ) {
-    viewField.innerHTML = viewField.innerHTML + " - ";
+    viewField.innerHTML = viewField.innerHTML + "-";
   }
 });
 o3.addEventListener("click", () => {
@@ -108,19 +108,11 @@ o3.addEventListener("click", () => {
     viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
     viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
   ) {
-    viewField.innerHTML = viewField.innerHTML + " * ";
+    viewField.innerHTML = viewField.innerHTML + "*";
   }
 });
 o4.addEventListener("click", () => {
-  if (
-    viewField.innerHTML !== "" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
-  ) {
-    viewField.innerHTML = viewField.innerHTML + " / ";
-  }
+  viewField.innerHTML = viewField.innerHTML.slice(0, -1);
 });
 reset.addEventListener("click", () => {
   viewField.innerHTML = "";
