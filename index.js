@@ -28,93 +28,96 @@ const reset = document.querySelector(".reset");
 // 필드
 const viewField = document.querySelector(".view__field");
 const viewResult = document.querySelector(".view__result");
-let field = viewField.innerHTML;
+var field = viewField.innerHTML;
+function rebase() {
+  viewField.innerHTML = field;
+}
 
+// 숫자 클릭 시
 n1.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "1";
-  console.log(typeof viewField.innerHTML);
+  field = field + "1";
+  rebase();
 });
 n2.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "2";
-  console.log(viewField.innerHTML);
+  field = field + "2";
+  rebase();
 });
 n3.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "3";
-  console.log(viewField.innerHTML);
+  field = field + "3";
+  rebase();
 });
 n4.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "4";
-  console.log(viewField.innerHTML);
+  field = field + "4";
+  rebase();
 });
 n5.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "5";
-  console.log(viewField.innerHTML);
+  field = field + "5";
+  rebase();
 });
 n6.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "6";
-  console.log(viewField.innerHTML);
+  field = field + "6";
+  rebase();
 });
 n7.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "7";
-  console.log(viewField.innerHTML);
+  field = field + "7";
+  rebase();
 });
 n8.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "8";
-  console.log(viewField.innerHTML);
+  field = field + "8";
+  rebase();
 });
 n9.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "9";
-  console.log(viewField.innerHTML);
+  field = field + "9";
+  rebase();
 });
 n0.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "0";
-  console.log(viewField.innerHTML);
+  field = field + "0";
+  rebase();
 });
 nl.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + "(";
-  console.log(viewField.innerHTML);
+  field = field + "(";
+  rebase();
 });
 nr.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML + ")";
-  console.log(viewField.innerHTML);
+  field = field + ")";
+  rebase();
 });
+// 연산기호 클릭 시
+// 연산기호 삽입 함수
+var operations = [];
+console.log(operations);
+var addOperation = function (op) {
+  if (!operations.includes(op)) {
+    operations.push(op);
+  }
+  if (field !== "") {
+    for (var operation of operations) {
+      if (operation == field[field.length - 1]) {
+        field = field.slice(0, -1);
+      }
+    }
+    field = field + op;
+  }
+  rebase();
+};
+// +
 o1.addEventListener("click", () => {
-  if (
-    viewField.innerHTML !== "" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
-  ) {
-    viewField.innerHTML = viewField.innerHTML + "+";
-  }
+  addOperation("+");
 });
+// -
 o2.addEventListener("click", () => {
-  if (
-    viewField.innerHTML !== "" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
-  ) {
-    viewField.innerHTML = viewField.innerHTML + "-";
-  }
+  addOperation("-");
 });
+// *
 o3.addEventListener("click", () => {
-  if (
-    viewField.innerHTML !== "" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "+" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "-" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/" &&
-    viewField.innerHTML[viewField.innerHTML.length - 2] !== "/"
-  ) {
-    viewField.innerHTML = viewField.innerHTML + "*";
-  }
+  addOperation("*");
 });
+// c
 o4.addEventListener("click", () => {
-  viewField.innerHTML = viewField.innerHTML.slice(0, -1);
+  field = field.slice(0, -1);
+  rebase();
 });
 reset.addEventListener("click", () => {
-  viewField.innerHTML = "";
+  field = "";
+  rebase();
 });
-console.log();
