@@ -34,59 +34,32 @@ function rebase() {
 }
 
 // 숫자 클릭 시
-n1.addEventListener("click", () => {
-  field = field + "1";
+// click 이벤트 메서드 프로퍼티에 textContent 가져오기
+function add(n) {
+  field = field + n.target.textContent;
   rebase();
-});
-n2.addEventListener("click", () => {
-  field = field + "2";
-  rebase();
-});
-n3.addEventListener("click", () => {
-  field = field + "3";
-  rebase();
-});
-n4.addEventListener("click", () => {
-  field = field + "4";
-  rebase();
-});
-n5.addEventListener("click", () => {
-  field = field + "5";
-  rebase();
-});
-n6.addEventListener("click", () => {
-  field = field + "6";
-  rebase();
-});
-n7.addEventListener("click", () => {
-  field = field + "7";
-  rebase();
-});
-n8.addEventListener("click", () => {
-  field = field + "8";
-  rebase();
-});
-n9.addEventListener("click", () => {
-  field = field + "9";
-  rebase();
-});
-n0.addEventListener("click", () => {
-  field = field + "0";
-  rebase();
-});
-nl.addEventListener("click", () => {
-  field = field + "(";
-  rebase();
-});
-nr.addEventListener("click", () => {
-  field = field + ")";
-  rebase();
-});
+}
+
+// 요소에 넣을 click 이벤트 함수
+function addEvent(prop) {
+  prop.addEventListener("click", add);
+}
+
+// 여러 숫자 선택(cal__btns)
+addEvent(nl);
+let cal__btns = document.querySelectorAll(".numpad");
+
+// 선택한 여러 숫자에 적용(for 문)
+for (let btn of cal__btns) {
+  addEvent(btn);
+}
+
 // 연산기호 클릭 시
 // 연산기호 삽입 함수
-var operations = [];
-console.log(operations);
-var addOperation = function (op) {
+let operations = [];
+
+// 연산기호 기본 동작 함수
+let addOperation = function (op) {
   if (!operations.includes(op)) {
     operations.push(op);
   }
@@ -100,23 +73,30 @@ var addOperation = function (op) {
   }
   rebase();
 };
-// +
-o1.addEventListener("click", () => {
-  addOperation("+");
-});
-// -
-o2.addEventListener("click", () => {
-  addOperation("-");
-});
-// *
-o3.addEventListener("click", () => {
-  addOperation("*");
-});
-// c
+
+//연산기호 추가 함수
+function addOp(op) {
+  addOperation(op.target.textContent);
+}
+let ops = document.querySelectorAll(".operation");
+function addEventOperation(op) {
+  op.addEventListener("click", addOp);
+}
+
+// C 제외 추가
+for (let op of ops) {
+  if (op.textContent !== "C") {
+    addEventOperation(op);
+  }
+}
+
+// C 클릭 시 backspace
 o4.addEventListener("click", () => {
   field = field.slice(0, -1);
   rebase();
 });
+
+//reset, result
 reset.addEventListener("click", () => {
   field = "";
   viewResult.innerHTML = "=";
